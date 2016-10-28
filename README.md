@@ -1,5 +1,5 @@
 Expertiza
-=========
+==========
 
 [![Build Status](https://travis-ci.org/expertiza/expertiza.svg?branch=master)](https://travis-ci.org/expertiza/expertiza)
 [![Code Climate](https://codeclimate.com/github/expertiza/expertiza/badges/gpa.svg)](https://codeclimate.com/github/expertiza/expertiza)

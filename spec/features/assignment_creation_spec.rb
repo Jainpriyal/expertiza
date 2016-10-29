@@ -192,10 +192,10 @@ describe "assignment function" do
       #click_button 'Create'
       assignment = Assignment.where(name: 'private assignment for test').first
       expect(assignment).to have_attributes(
-                                name: 'private assignment for test',
-                                course_id: Course.find_by_name('Course 2')[:id],
-                                directory_path: 'testDirectory',
-                                spec_location: 'testLocation')
+        name: 'private assignment for test',
+        course_id: Course.find_by_name('Course 2')[:id],
+        directory_path: 'testDirectory',
+        spec_location: 'testLocation')
     end
 
     it "is able to create public micro-task assignment" do
@@ -495,17 +495,6 @@ describe "assignment function" do
           questionnaire_weight: 50,
           notification_limit: 50
         )
-      end
-
-      it "should update scored question dropdown" do
-        within("tr#questionnaire_table_AuthorFeedbackQuestionnaire") do
-          select "AuthorFeedbackQuestionnaire2", from: 'assignment_form[assignment_questionnaire][][questionnaire_id]'
-          select "Scale", from: 'assignment_form[assignment_questionnaire][][dropdown]'
-        end
-        click_button 'Save'
-        questionnaire = Questionnaire.where(name: "AuthorFeedbackQuestionnaire2").first
-        assignment_questionnaire = AssignmentQuestionnaire.where(assignment_id: @assignment.id, questionnaire_id: questionnaire.id).first
-        expect(assignment_questionnaire.dropdown).to eq(false)
       end
 
       ##
